@@ -96,7 +96,7 @@ function promptEngineer() {
   ])
   .then(answers => {
     engineerAnswers = answers;
-    const engineer = new Engineer(engineerAnswers.id, engineerAnswers.email, engineerAnswers.GitHub);
+    const engineer = new Engineer(engineerAnswers.name,engineerAnswers.id, engineerAnswers.email, engineerAnswers.GitHub);
     teamMembers.push(engineer);
     promptAddTeamMember();
   });
