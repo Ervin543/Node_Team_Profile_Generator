@@ -4,7 +4,7 @@ const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs');
-const makeHTML = require('./makeHTML');
+const makeHTML = require('./src/makeHTML');
 
 const teamMembers = [];
 const idArray = [];
@@ -75,6 +75,11 @@ function promptEngineer() {
   return inquirer.prompt([
     {
       type: 'input',
+      name: 'name',
+      message: "What is the Engineer's name?",
+    },
+    {
+      type: 'input',
       name: 'id',
       message: "What is the Engineer's id?",
     },
@@ -99,6 +104,11 @@ function promptEngineer() {
 
 function promptIntern() {
   return inquirer.prompt([
+    {
+      type: 'input',
+      name: 'name',
+      message: "What is the Intern's name?",
+    },
     {
       type: 'input',
       name: 'id',
@@ -127,7 +137,7 @@ function createHTML() {
   
 
   const outputHtml = makeHTML(teamMembers);
-  fs.writeFile('output/team.html', outputHtml, (err) =>
+  fs.writeFile('dist/team.html', outputHtml, (err) =>
     err ? console.error(err) : console.log('Success!')
   );
 }
