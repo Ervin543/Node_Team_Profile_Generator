@@ -7,7 +7,23 @@ This Repository houses several folders and files, each with their own specific r
 
 # Images
 
-
+![This is the code for the Employee constructor](images/Employee_js.PNG)
+![This is the code for the Employee.test.js](images/Employee_test.PNG)
+![This is the code for the Engineer constructor](images/Engineer_js.PNG)
+![This is the code for the Engineer.test.js](images/Engineer_test.PNG)
+![This is the code for the Index.js 1](images/Index_js_1.PNG)
+![This is the code for the Index.js 2](images/Index_js_2.PNG)
+![This is the code for the Index.js 3](images/Index_js_3.PNG)
+![This is the code for the Intern constructor](images/Intern_js.PNG)
+![This is the code for the Intern.test.js](images/Intern_test.PNG)
+![This is the code for the makeHTML.js 1](images/MakeHTML_1.PNG)
+![This is the code for the makeHTML.js 2](images/MakeHTML_2.PNG)
+![This is the code for the Manager constructor](images/Manager_js.PNG)
+![This is the code for the Manager.test.js](images/Manager_test.PNG)
+![This is the code for the Stylesheet 1](images/Style_css.PNG)
+![This is the code for the Stylesheet 2](images/Style_css_2.PNG)
+![This is the code for the HTML Output Code](images/Team_HTML.PNG)
+![This is the code for the Deployed Webpage](images/Webpage.PNG)
 
 
 # Links 
