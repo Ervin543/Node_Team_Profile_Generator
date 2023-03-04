@@ -4,6 +4,7 @@ const Intern = require('./lib/Intern');
 const inquirer = require('inquirer');
 const path = require('path');
 const fs = require('fs');
+const generateHTML = require('./generateHTML');
 
 
 
@@ -24,19 +25,19 @@ function promptAddTeamMember() {
     .then(answer => {
       switch (answer.teamMemberType) {
         case 'Manager':
-          // call promptManager function
+          
           promptManager();
           break;
         case 'Engineer':
-          // call promptEngineer function
+          
           promptEngineer();
           break;
         case 'Intern':
-          // call promptIntern function
+          
           promptIntern();
           break;
         case 'None - I am done adding team members':
-          // call function to generate HTML file
+          
           createHTML();
 
           break;
@@ -118,7 +119,7 @@ function promptAddTeamMember() {
         {
           type: 'input',
           name: 'school',
-          message: "Where school did the Intern attend?",
+          message: "What school did the Intern attend?",
         },
       ])
       .then(answers => {
@@ -135,13 +136,13 @@ function promptAddTeamMember() {
 
   };
   
-
-
-
+  
+  
+  
   function createHTML(teamMembers) {
     const filePath = path.join(__dirname, 'output', 'team.html');
-    const htmlContent = generateHTML(teamMembers);
-  
+    const htmlContent = generateHTML(managerAnswers, engineerAnswers, internAnswers);
+    
     fs.writeFile(filePath, htmlContent, err => {
       if (err) {
         console.error(err);
@@ -150,6 +151,16 @@ function promptAddTeamMember() {
       console.log(`HTML file created at ${filePath}`);
     });
   };
+
+
+
+
+
+
+
+
+
+
   
   
 
