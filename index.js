@@ -46,71 +46,97 @@ function promptAddTeamMember() {
   
 
 
-function promptManager() {
-    return inquirer.prompt([
-      {
-        type: 'input',
-        name: 'name',
-        message: "What is the Manager's name?",
-      },
-      {
-        type: 'input',
-        name: 'id',
-        message: "What is the Manager's ID?",
-      },
-      {
-        type: 'input',
-        name: 'email',
-        message: "What is the Manager's email address?",
-      },
-      {
-        type: 'input',
-        name: 'officeNumber',
-        message: "What is the Manager's office number?",
-      },
-    ]);
+  let managerAnswers;
+  let engineerAnswers;
+  let internAnswers;
+  
+  function promptManager() {
+      return inquirer.prompt([
+        {
+          type: 'input',
+          name: 'name',
+          message: "What is the Manager's name?",
+        },
+        {
+          type: 'input',
+          name: 'id',
+          message: "What is the Manager's ID?",
+        },
+        {
+          type: 'input',
+          name: 'email',
+          message: "What is the Manager's email address?",
+        },
+        {
+          type: 'input',
+          name: 'officeNumber',
+          message: "What is the Manager's office number?",
+        },
+      ])
+      .then(answers => {
+        managerAnswers = answers;
+        promptAddTeamMember();
+      });
   };
-
+  
   function promptEngineer() {
-    return inquirer.prompt([
-      {
-        type: 'input',
-        name: 'id',
-        message: "What is the Engineer's id?",
-      },
-      {
-        type: 'input',
-        name: 'email',
-        message: "What is the Engineer's email address?",
-      },
-      {
-        type: 'input',
-        name: 'GitHub',
-        message: "What is the Engineer's GitHub username?",
-      },
-    ]);
+      return inquirer.prompt([
+        {
+          type: 'input',
+          name: 'id',
+          message: "What is the Engineer's id?",
+        },
+        {
+          type: 'input',
+          name: 'email',
+          message: "What is the Engineer's email address?",
+        },
+        {
+          type: 'input',
+          name: 'GitHub',
+          message: "What is the Engineer's GitHub username?",
+        },
+      ])
+      .then(answers => {
+        engineerAnswers = answers;
+        promptAddTeamMember();
+      });
   }
-
   
   function promptIntern() {
-    return inquirer.prompt([
-      {
-        type: 'input',
-        name: 'id',
-        message: "What is the Intern's ID?",
-      },
-      {
-        type: 'input',
-        name: 'email',
-        message: "What is the Intern's email address?",
-      },
-      {
-        type: 'input',
-        name: 'school',
-        message: "Where school did the Intern attend?",
-      },
-    ]);
-  }
+      return inquirer.prompt([
+        {
+          type: 'input',
+          name: 'id',
+          message: "What is the Intern's ID?",
+        },
+        {
+          type: 'input',
+          name: 'email',
+          message: "What is the Intern's email address?",
+        },
+        {
+          type: 'input',
+          name: 'school',
+          message: "Where school did the Intern attend?",
+        },
+      ])
+      .then(answers => {
+        internAnswers = answers;
+        promptAddTeamMember();
+      });
+  };
+  
+  function generateHTML(teamMembers) {
+      const manager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber);
+      const engineer = new Engineer(engineerAnswers.id, engineerAnswers.email, engineerAnswers.GitHub);
+      const intern = new Intern(internAnswers.id, internAnswers.email, internAnswers.school);
+  
+
+  };
+  
+
+
 
   function createHTML(teamMembers) {
     const filePath = path.join(__dirname, 'output', 'team.html');
@@ -123,7 +149,7 @@ function promptManager() {
       }
       console.log(`HTML file created at ${filePath}`);
     });
-  }
+  };
   
   
 
